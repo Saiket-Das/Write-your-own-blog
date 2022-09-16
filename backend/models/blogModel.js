@@ -3,6 +3,16 @@ const mongoose = require('mongoose');
 
 const blogModel = mongoose.Schema(
     {
+        authorEmail:{
+            type: String,
+            require: true
+        },
+
+        authorName:{
+            type: String,
+            require: true
+        },
+
         title: {
             type: String,
             require: true
@@ -18,11 +28,9 @@ const blogModel = mongoose.Schema(
             require: true,
         },
 
-        date:{
-            type: String,
-            require: true,
+        refLink:{
+            type: String
         }
-
     },
     {
         timestamps: true,

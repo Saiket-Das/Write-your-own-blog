@@ -20,9 +20,11 @@ app.use(cors())
 app.use(express.json());
 
 const userRoutes = require('./routes/userRoutes')
+const blogRoutes = require('./routes/blogRoutes')
 
 
 app.use('/api/user', userRoutes);
+app.use('/api/blog', blogRoutes);
 
 
 
