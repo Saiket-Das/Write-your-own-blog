@@ -9,6 +9,7 @@ exports.getBlogsService = async () => {
 
 
 exports.createBlogService = async ( blogDetails) => {
+    console.log(blogDetails)
     const result = await Blog.create(blogDetails);
     return result;
 }
