@@ -20,6 +20,10 @@ app.use(cors())
 app.use(express.json());
 
 
+app.get('/', (req, res) => {
+    res.send("Moon Light is running!")
+})
+
 const server = app.listen(port,
     console.log(`Server running on PORT ${port}...`.yellow.bold)
 );
