@@ -15,6 +15,7 @@ connectDB()
 // yABzW6bhQjOZWeDd
 
 
+
 // Middleware 
 app.use(cors())
 app.use(express.json());
@@ -30,6 +31,7 @@ app.use('/api/blog', blogRoutes);
 
 app.get('/', (req, res) => {
     res.send("Moon Light is running!")
+
 })
 
 const server = app.listen(port,

@@ -1,4 +1,7 @@
 const User = require("../models/userModel");
+const jwt = require('jsonwebtoken');
+
+
 
 exports.getUsersService = async () => {
 
@@ -8,7 +11,6 @@ exports.getUsersService = async () => {
 
 
 exports.createUserService = async (paramEmail, userDetails) => {
-    console.log(paramEmail)
     const filter = { email: paramEmail };
     const options = { upsert: true };
     const updateDoc = {
@@ -16,11 +18,12 @@ exports.createUserService = async (paramEmail, userDetails) => {
     };
 
     const result = await User.updateOne(filter, updateDoc, options);
-    // var token = jwt.sign({ email: email },
-    //     process.env.SECRET_TOKEN,
-    //     { expiresIn: '1d' }
-    // );
+    var token = jwt.sign({ email: paramEmail },
+        process.env.JWT_SECRET,
+        { expiresIn: '5d' }
+    );
 
-    return result;
+
+    return ({ result, accessToken: token });
 
 }

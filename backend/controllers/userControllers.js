@@ -23,11 +23,13 @@ exports.getUsers = async (req, res, next) => {
 
 exports.createUser = async (req, res, next) => {
     try {
-        const User = await createUserService(req.params.email, req.body);
+        const user = await createUserService(req.params.email, req.body);
+
+        console.log(user)
         res.status(200).json({
             success: true,
-            message: 'Data inserted',
-            data: User
+            message: 'User Registered',
+            data: user
         })
     }
     catch (error) {
